@@ -1,0 +1,10 @@
+Games:
+------
+
+HTML5:
+------
+http://ancientbeast.com/game/
+http://play.freeciv.org/
+http://joeyvo.me/HTML5-minesweeper/
+http://openpanzer.net/
+http://wooga.github.io/Pocket-Island/ipad.html
