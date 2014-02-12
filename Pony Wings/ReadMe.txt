@@ -3,6 +3,17 @@ Intro :
 -------
 Ce fichier documente un jeu vidéo (nom du jeu pour le moment : NONAME) en HTML5 pour browsers web et téléphones mobiles. Ce jeu est une adaptation du jeu "Pony Wings" (code sous license Open Source) pour le concours "Mobile Banking Factory 2014" organisé par "BeMyApp" et le "Crédit Agricole".
 
+
+-------
+USAGE :
+-------
+
+Le jeu utilise sa propre monnaie, les CASTOS.
+L'utilisateur achète des castos avec des euros, en utilisant la fonction virement du CAStore.
+Dans notre jeu, c'est faisable par la BOUTIQUE accessible depuis le menu principal du jeu.
+Dans cette même boutique, l'utilisateur peut acheter des ressources/items ingame, des bonus, comme des turbos, de la nitro, du temps supplémentaire ou des parachutes.
+
+
 -------------------------
 Licence de "Pony Wings" :
 -------------------------
