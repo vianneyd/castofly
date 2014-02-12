@@ -40,9 +40,9 @@ pony.synchDataM2V = function () {
 	} else {
 		document.querySelector ("#chronoButtonLabel").innerHTML = "Chronos";	
 	} if (pony.parachutes <= 1){
-		document.querySelector ("#parachuteButtonLabel").innerHTML = "Parachute";
+		document.querySelector ("#parachuteButtonLabel").innerHTML = "Chute";
 	} else {
-		document.querySelector ("#parachuteButtonLabel").innerHTML = "Parachutes";	
+		document.querySelector ("#parachuteButtonLabel").innerHTML = "Chutes";	
 	} if (pony.turbos <= 1){
 		document.querySelector ("#turboButtonLabel").innerHTML = "Turbo";
 	} else {
