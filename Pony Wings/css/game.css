@@ -1,5 +1,7 @@
 /** TAGS **/
 body {
+	width:500px;
+	height:350px;
 	color: #FFF;
 	overflow:hidden;
 	margin:0;
