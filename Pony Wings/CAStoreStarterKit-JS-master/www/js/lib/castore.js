@@ -188,6 +188,8 @@ var CAStore = (function(){
             try {
                 url = iframe.contentWindow.location.href;
                 logger.log('URL changed', url);
+                //parent.document.getElementById('the-iframe-id').style.height = document['body'].offsetHeight + 'px';
+                self.style.height = document['body'].offsetHeight + 'px';
             }
             catch(exception){
 

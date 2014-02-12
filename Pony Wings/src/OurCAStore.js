@@ -130,8 +130,8 @@ ourCAStore.buyMoney7 = function (n) {
         $("#CAStoreScreenContainer")[0],
         function(err, iframe){
             console.log('Transfer iframe:', iframe);
-            // TODO: checker dans la iframe si le virement a réussi ...
-            console.log('Le virement a réussi?');
+            // TODO: checker dans la iframe si le virement a réussi ... ce n'est pas ICI qu'il faut le faire: il faut ajouter une fonction dans la iframe.
+            console.log('Le virement a réussi? no pas encore là on a juste le formulaire de validation ...');
             ourCAStore.thune += n;
             //setTimeout (function(){$("#CAStoreScreenContainer").hide()}, 10000); //Todo: ne va pas comme ça!!
         });
