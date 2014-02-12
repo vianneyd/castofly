@@ -1,4 +1,11 @@
 /** TAGS **/
+html {
+	width:500px;
+	height:350px;
+	       margin: 0;
+                padding: 0;
+}
+
 body {
 	width:500px;
 	height:350px;

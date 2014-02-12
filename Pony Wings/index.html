@@ -54,13 +54,13 @@
 	    window.ontouchcancel = function(event){if(gameIsLoaded){ kCont.down = false; }}; 
 	</script>
    		
-	   <div>   
+	   <div style='position:fixed; top:0px; left:0px; width:500px; height:350px; margin: 0; padding: 0;'>   
 	   	   
 	   	   <!-- CANVAS DOM -->
 	   	   <div id="background">
 				<div id='loading'></div>
 	   	   </div>
-	   	   <div id="game_container" style='display:none;'>
+	   	   <div id="game_container" style='position:fixed; top:0px; left:0px; width:500px; height:350px; margin: 0; padding: 0;'>
 		   	   <canvas id="game" width="480" height="300"> </canvas>
 			   <canvas id="hud" width="480" height="300"></canvas>
 			   <div id='instructions' style='position:relative; opacity:1'>
@@ -137,7 +137,7 @@
 			   		<span style="position:absolute;right:0;bottom:0;margin:10px" id="points">0</span>
 			   </div>
 			   
-			    <div id="item_screen" style="position:fixed; bottom:55px; left:110px; margin:1px;">
+			    <div id="item_screen" style="position:fixed; bottom:100px; left:110px; margin:1px;">
 				<button class="itemButton" onClick="pony.useChrono ();"><span id="chronoCount"></span> <span id="chronoButtonLabel">Chronos</span></button>
 				<button class="itemButton" onClick="pony.useTurbo ();"><span id="turboCount"></span> <span id="turboButtonLabel">Turbos</span></button>
 				<button class="itemButton" onClick="pony.useParachute ();"><span id="parachuteCount"></span> <span id="parachuteButtonLabel">Chutes</span></button>
