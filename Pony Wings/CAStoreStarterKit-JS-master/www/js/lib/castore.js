@@ -7,6 +7,9 @@ var CAStore = (function(){
     };
 
     function CAStore(consumerKey, consumerSecret, callbackURL, proxy){
+        this.myIframe = null;
+        this.requestedRequestToken = false;
+        
         this.consumer = {
             key: consumerKey,
             secret: consumerSecret
@@ -58,8 +61,11 @@ var CAStore = (function(){
         if (!DOMElement)
             throw new Error('Target DOM Element must be set');
         this.DOMElement = DOMElement;
-        this._getRequestToken(onRequestTokenObtained);
-        logger.log('init()', 'proxy:' + this.proxy);
+        if (!this.requestedRequestToken){
+            this._getRequestToken(onRequestTokenObtained);
+        } else {
+            this.getNewRequestToken(onRequestTokenObtained);
+        } logger.log('init()', 'proxy:' + this.proxy);
         logger.log('Initializing request token');
 
         function onRequestTokenObtained(err, self){
@@ -147,11 +153,13 @@ var CAStore = (function(){
                 + '&libelleVirement=' + encodeURI(params.title)
                 + '&montant=' + params.amount
                 + '&oauth_token=' + response.oauth_token;
-
+            /*
             var iframe = document.createElement('iframe');
             iframe.setAttribute('src', url);
             DOMElement.appendChild(iframe);
-
+            */ // remplacé par:
+            self.myIframe.setAttribute('src', url);
+            
             if (callback)
                 callback(null, iframe);
         }
@@ -167,7 +175,7 @@ var CAStore = (function(){
         function onRequestTokenObtained(err, response){
             if (err)
                 return (callback)? callback(err) : null;
-
+            this.requestedRequestToken = true;
             response = responseStringToMap(response.response);
             self.request.token = response.oauth_token;
             self.request.secret = response.oauth_token_secret;
@@ -178,18 +186,25 @@ var CAStore = (function(){
 
     CAStore.prototype._createAuthIframe = function(callback){
         var self = this;
-        var iframe = document.createElement('iframe');
-        iframe.setAttribute('src', 'https://www.creditagricolestore.fr/castore-data-provider/authentification/?0&oauth_token=' + this.request.token);
-        iframe.addEventListener('load', onIframeLoaded);
-        this.DOMElement.appendChild(iframe);
-
+        var iframe = this.myIframe;
+        if (iframe == null) {
+            iframe = document.createElement('iframe');
+            iframe.id = "iframeID"; //TODO: ce code marche pas pour acter sur la iframe after, ne court pas non plus ...
+            //iframe.setAttribute('id', "iframeID"); //TODO: ce code marche pas pour acter sur la iframe after, ne court pas non plus ...
+            iframe.addEventListener('load', onIframeLoaded);
+            this.DOMElement.appendChild(iframe)
+        } iframe.setAttribute('src', 'https://www.creditagricolestore.fr/castore-data-provider/authentification/?0&oauth_token=' + this.request.token);
+        this.myIframe = iframe;
+        
         function onIframeLoaded(){
             var url;
             try {
                 url = iframe.contentWindow.location.href;
                 logger.log('URL changed', url);
                 //parent.document.getElementById('the-iframe-id').style.height = document['body'].offsetHeight + 'px';
-                self.style.height = document['body'].offsetHeight + 'px';
+                //self.style.height = document['body'].offsetHeight + 'px';
+                self.style.height = "300px";
+                self.style.width = "300px";
             }
             catch(exception){
 

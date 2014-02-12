@@ -42,7 +42,8 @@ ourCAStore.buyMoney = function (n) {
             if (err){
                 return console.log('Error initializing CAStore comm object.', err);
             } $("#CAStoreScreenContainer").hide();
-            //$("#authScreen").hide ();
+            // document.querySelector ("#CAStoreScreenContainer").removeChild (document.querySelector ("iframeID"));    // TODO: il faut supprimer la iframe. ce code ne fonctionne pas, node not found
+            // document.body.removeChild(document.getElementById("iframeID"));   // TODO: il faut supprimer la iframe. ce code ne fonctionne pas, node not found     
             ourCAStore.buyMoney3 (n);
         }
     );
