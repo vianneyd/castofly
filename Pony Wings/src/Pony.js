@@ -36,17 +36,17 @@ pony.synchDataM2V = function () {
 	document.getElementById ("chronoCount").innerHTML = pony.chronos;
 	document.getElementById ("parachuteCount").innerHTML = pony.parachutes;
 	if (pony.chronos <= 1){
-		document.querySelector ("chronoButtonLabel").innerHTML = "Chrono";
+		document.querySelector ("#chronoButtonLabel").innerHTML = "Chrono";
 	} else {
-		document.querySelector ("chronoButtonLabel").innerHTML = "Chronos";	
+		document.querySelector ("#chronoButtonLabel").innerHTML = "Chronos";	
 	} if (pony.parachutes <= 1){
-		document.querySelector ("parachuteButtonLabel").innerHTML = "Parachute";
+		document.querySelector ("#parachuteButtonLabel").innerHTML = "Parachute";
 	} else {
-		document.querySelector ("parachuteButtonLabel").innerHTML = "Parachutes";	
+		document.querySelector ("#parachuteButtonLabel").innerHTML = "Parachutes";	
 	} if (pony.turbos <= 1){
-		document.querySelector ("turboButtonLabel").innerHTML = "Turbo";
+		document.querySelector ("#turboButtonLabel").innerHTML = "Turbo";
 	} else {
-		document.querySelector ("turboButtonLabel").innerHTML = "Turbos";	
+		document.querySelector ("#turboButtonLabel").innerHTML = "Turbos";	
 	} document.getElementById ("turboCountMM").innerHTML  = pony.turbos;
 	document.getElementById ("chronoCountMM").innerHTML = pony.chronos;
 	document.getElementById ("parachuteCountMM").innerHTML = pony.parachutes;
