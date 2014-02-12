@@ -32,6 +32,8 @@ pony.init = function(){
 pony.startMoving = false;
 
 pony.synchDataM2V = function () {
+	document.querySelector ("#MenuBoutiqueThune").innerHTML = ourCAStore.thune;
+	
 	document.getElementById ("turboCount").innerHTML  = pony.turbos;
 	document.getElementById ("chronoCount").innerHTML = pony.chronos;
 	document.getElementById ("parachuteCount").innerHTML = pony.parachutes;
@@ -243,19 +245,28 @@ pony.buyMoney = function (n) {
 
 pony.buyChrono = function (n)
 {
-	pony.chronos += n;
-	pony.synchDataM2V ();
+	if (ourCAStore.thune >= n*ourCAStore.CHRONO_PRICE){
+		ourCAStore.thune -= n*ourCAStore.CHRONO_PRICE;
+		pony.chronos += n;
+		pony.synchDataM2V ();
+	}
 }
 
 pony.buyParachute = function (n)
 {
-	pony.parachutes += n;
-	pony.synchDataM2V ();
+	if (ourCAStore.thune >= n*ourCAStore.CHUTE_PRICE){
+		ourCAStore.thune -= n*ourCAStore.CHUTE_PRICE;
+		pony.parachutes += n;
+		pony.synchDataM2V ();
+	}
 }
 
 
 pony.buyTurbo = function (n)
 {
-	pony.turbos += n;
-	pony.synchDataM2V ();
+	if (ourCAStore.thune >= n*ourCAStore.TURBO_PRICE){
+		ourCAStore.thune -= n*ourCAStore.TURBO_PRICE;
+		pony.turbos += n;
+		pony.synchDataM2V ();
+	}
 }

@@ -11,7 +11,10 @@ ourCAStore = {
     BAM:null,
     emitter: null,
     recipient: null,
-    
+    thune: 100,
+    CHUTE_PRICE: 10,
+    CHRONO_PRICE: 30, 
+    TURBO_PRICE: 20,
 };
 
 /**
@@ -130,7 +133,7 @@ ourCAStore.buyMoney7 = function (n) {
             // TODO: checker dans la iframe si le virement a réussi ...
             console.log('Le virement a réussi?');
             ourCAStore.thune += n;
-            setTimeout (function(){$("#CAStoreScreenContainer").hide()}, 10000);
+            //setTimeout (function(){$("#CAStoreScreenContainer").hide()}, 10000); //Todo: ne va pas comme ça!!
         });
 }
     

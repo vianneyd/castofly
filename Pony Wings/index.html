@@ -79,7 +79,7 @@
 					    <div id="MainMenuBoutique" onClick="document.getElementById('BoutiqueMenu').style.display = 'block'; document.getElementById('MainMenu').style.display = 'none';" onTouchStart="document.getElementById('BoutiqueMenu').style.display = 'block'; document.getElementById('MainMenu').style.display = 'none';">Boutique</div>
 					    <div id="MainMenuOptions" onClick="menu.showOptionMenu ();" onTouchStart="menu.showOptionMenu ();">Options</div>
 					    <div id="MainMenuQuit">Quitter</div>
-					    <div id="MainMenuTestCAStore" onClick="pony.buyMoney(5);">Test SDK CAStore</div>
+					    <!-- <div id="MainMenuTestCAStore" onClick="pony.buyMoney(5);">Test SDK CAStore</div> -->
 					    <!-- <div id="MainMenuTestSdk"><a href="CAStoreStarterKit-JS-master/www/index.html">Demo SDK Julien</a></div> -->
 					</div>
 					<!-- Sous-Menu des Options -->
@@ -104,14 +104,17 @@
 					    Inventaire :
 					    <div id="BoutiqueMenuInventaire" style="font-size:16px; padding:4px; border:1px solid #E84298; border-radius:10px;"> 
 						<div id="BoutiqueMenuInvTimeCount">
+						    <span id="MenuBoutiqueThune"></span> Castos 
+						    <button  class="itemButton"  onClick="pony.buyMoney(50);" style="float:right; margin-right:0px;">Acheter 50 Castos</button>
+						</div> <div id="BoutiqueMenuInvTimeCount">
 						    <span id="chronoCountMM"></span> Chronos 
-						    <button  class="itemButton"  onClick="pony.buyChrono(1);" style="float:right; margin-right:0px;">Acheter</button>
+						    <button  class="itemButton"  onClick="pony.buyChrono(1);" style="float:right; margin-right:0px;">Acheter 1 Chrono</button>
 						</div> <div id="BoutiqueMenuInvTurboCount">
 						    <span id="turboCountMM"></span> Turbos
-						    <button  class="itemButton"  onClick="pony.buyTurbo(1);" style="float:right; margin-right:0px;">Acheter</button>
+						    <button  class="itemButton"  onClick="pony.buyTurbo(1);" style="float:right; margin-right:0px;">Acheter1 Turbo</button>
 						</div> <div id="BoutiqueMenuInvParachuteCount">
 						    <span id="parachuteCountMM"></span> Chutes
-						    <button   class="itemButton" onClick="pony.buyParachute(1);" style="float:right; margin-right:0px;">Acheter</button></div>
+						    <button   class="itemButton" onClick="pony.buyParachute(1);" style="float:right; margin-right:0px;">Acheter 1 Chute</button></div>
 					    </div>
 					    <div id="BoutiqueMenuBack" onClick="document.getElementById('BoutiqueMenu').style.display = 'none'; document.getElementById('MainMenu').style.display = 'block';" onTouchStart="document.getElementById('BoutiqueMenu').style.display = 'none'; document.getElementById('MainMenu').style.display = 'block';">Retour</div>
 					</div>
