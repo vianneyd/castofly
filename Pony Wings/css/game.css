@@ -1,14 +1,13 @@
 /** TAGS **/
 html {
-	width:500px;
-	height:350px;
-	       margin: 0;
-                padding: 0;
+	width:480px;
+	height:300px;
+	margin: 0;
+	padding: 0;
 }
-
 body {
-	width:500px;
-	height:350px;
+	width:480px;
+	height:300px;
 	color: #FFF;
 	overflow:hidden;
 	margin:0;
