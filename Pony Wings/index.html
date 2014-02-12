@@ -103,9 +103,9 @@
 					<div id="BoutiqueMenu" style='position:absolute; top:100px; left:200px; width:270px; height:100px; font-size:20px; color:#E84298; display:none;'>
 					    Inventaire :
 					    <div id="BoutiqueMenuInventaire" style="font-size:16px; padding:4px; border:1px solid #E84298; border-radius:10px;"> 
-						<div id="BoutiqueMenuInvTimeCount">Nombre de chronos : <span id="chronoCountMM"></span> <button onClick="pony.buyChrono(1);" style="margin-left:auto; margin-right:0px;">Acheter</button></div>
-						<div id="BoutiqueMenuInvTurboCount">Nombre de turbos : <span id="turboCountMM"></span> <button  onClick="pony.buyTurbo(1);" style="margin-left:auto; margin-right:0px;">Acheter</button></div>
-						<div id="BoutiqueMenuInvParachuteCount">Nombre de parachutes : <span id="parachuteCountMM"></span> <button  onClick="pony.buyParachute(1);" style="margin-left:auto; margin-right:0px;">Acheter</button></div>
+						<div id="BoutiqueMenuInvTimeCount"><span id="chronoCountMM"></span> Chronos <button  class="itemButton"  onClick="pony.buyChrono(1);" style="margin-left:auto; margin-right:0px;">Acheter</button></div>
+						<div id="BoutiqueMenuInvTurboCount"><span id="turboCountMM"></span> Turbos<button  class="itemButton"  onClick="pony.buyTurbo(1);" style="margin-left:auto; margin-right:0px;">Acheter</button></div>
+						<div id="BoutiqueMenuInvParachuteCount"><span id="parachuteCountMM"></span> Chutes<button   class="itemButton" onClick="pony.buyParachute(1);" style="margin-left:auto; margin-right:0px;">Acheter</button></div>
 					    </div>
 					    <div id="BoutiqueMenuBack" onClick="document.getElementById('BoutiqueMenu').style.display = 'none'; document.getElementById('MainMenu').style.display = 'block';" onTouchStart="document.getElementById('BoutiqueMenu').style.display = 'none'; document.getElementById('MainMenu').style.display = 'block';">Retour</div>
 					</div>
@@ -141,12 +141,12 @@
 				<div id="container2" style="position:absolute; top:50px; left:100px; background-color:#888888; opacity:0.95;">
 				    <h3 align="center">Boutique</h3>
 				    Acheter des chronos :<br>
-				    <button onClick="pony.buyChrono (1); ">1</button>
-				    <button onClick="pony.buyChrono (2); ">2</button><br>
+				    <button  class="itemButton" onClick="pony.buyChrono (1); ">1</button>
+				    <button  class="itemButton" onClick="pony.buyChrono (2); ">2</button><br>
 				    Acheter des turbos :<br>
-				    <button onClick="pony.buyTurbo (1);">1</button> 
-				    <button onClick="pony.buyTurbo (2);">2</button> <br>
-				    <button onClick="pony.buyParachute(1);">Acheter un Parachute</button>
+				    <button  class="itemButton" onClick="pony.buyTurbo (1);">1</button> 
+				    <button  class="itemButton" onClick="pony.buyTurbo (2);">2</button> <br>
+				    <button  class="itemButton" onClick="pony.buyParachute(1);">Acheter un Parachute</button>
 				    <div align="center"><button onClick="menu.exitBoutique();">Quitter la Boutique</button></div>
 				</div>
 			   </div>
