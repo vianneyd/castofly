@@ -161,7 +161,7 @@ var CAStore = (function(){
             self.myIframe.setAttribute('src', url);
             
             if (callback)
-                callback(null, iframe);
+                callback(null, self.myIframe);//callback(null, iframe);
         }
     };
 

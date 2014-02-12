@@ -24,6 +24,17 @@
      <link rel="apple-touch-icon-precomposed" href="art/icon/IconScootBack.png" />
      <link rel="apple-touch-startup-image" href="art/Loading.png" />  
 	 <script>
+		function toggleCASScreen(){
+		    $("#CAStoreScreenContainer").toggle();
+		    return;
+		    if ($("#CAStoreScreenContainer").is(":hidden")){
+			$("#CAStoreScreenContainer").show();
+			//document.querySelector ("#toggleCASSLabel").innerHTML = "hide";
+		    } else {
+			$("#CAStoreScreenContainer").hide();
+			//document.querySelector ("#toggleCASSLabel").innerHTML = "show";
+		    }
+		}
 		function BlockMove(event) {
 			if(!gameIsLoaded || !menu.isGameOver){
 				event.preventDefault();
@@ -144,6 +155,7 @@
 				<button class="itemButton" onClick="pony.useChrono ();"><span id="chronoCount"></span> <span id="chronoButtonLabel">Chronos</span></button>
 				<button class="itemButton" onClick="pony.useTurbo ();"><span id="turboCount"></span> <span id="turboButtonLabel">Turbos</span></button>
 				<button class="itemButton" onClick="pony.useParachute ();"><span id="parachuteCount"></span> <span id="parachuteButtonLabel">Chutes</span></button>
+				<button  class="itemButton" onClick="toggleCASScreen ();"><span id="toggleCASSLabel">show/hide</span></button>
 			    </div>
 			   
 			   <div id="boutique">
