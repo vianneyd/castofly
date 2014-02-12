@@ -122,41 +122,16 @@ ourCAStore.buyMoney7 = function (n) {
             emitterId: ourCAStore.emitter,
             receiverId: ourCAStore.recipient,
             title: 'Test transfer - ' + new Date().toLocaleString(),
-            amount: 42
+            amount: n
         },
         $("#CAStoreScreenContainer")[0],
         function(err, iframe){
             console.log('Transfer iframe:', iframe);
+            // TODO: checker dans la iframe si le virement a réussi ...
+            console.log('Le virement a réussi?');
+            ourCAStore.thune += n;
+            setTimeout (function(){$("#CAStoreScreenContainer").hide()}, 10000);
         });
 }
-
     
-    
-    
-/*
-ourCAStore.onCAStoreInitialized = function (err, caStore){
-    $("#CAStoreScreenContainer").hide();
-    if(err){
-        return console.log('Error initializing CAStore', err);
-    } sessionStore.save(caStore.export());
-    ourCAStore.getBAM();
-}
-*/
-
-/*
-ourCAStore.getBAM = function(){
-    ourCAStore.caStore.session.GET('comptesBAM', onBAMObtained);
-    function onBAMObtained(err, response){
-        if (err)
-            return console.log('Error getting BAM from CAStore', err);
-        var account = response.data.compteBAMDTOs[0];
-        alert('BAM!\nId:' + account.id + '\nAlias: ' + account.alias);
-    }
-}
-
-function onBAMObtained(err, response){
-    if (err){
-        return console.log('Error getting BAM from CAStore', err);
-    } ourCAStore.BAMs = response.data.compteBAMDTOs;
-}
-*/
+   
