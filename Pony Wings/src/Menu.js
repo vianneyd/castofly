@@ -137,12 +137,13 @@ menu.toggleLanguage = function () {
 	}
 }
 
-menu.toggleGameSpeed = function(){
+menu.toggleGameSpeed = function(){ //TODO: comment faire pour régler la vitesse?
 	var speed = parseInt(document.getElementById("GameSpeed").innerHTML);
 	if (speed >= 400) {
 		speed = 50;
 	} else {
 		speed = speed + 25;
-	}
-	document.getElementById("GameSpeed").innerHTML = speed;
+	} document.getElementById("GameSpeed").innerHTML = speed; 
+	pony.gameSpeed = speed/100;
+	console.log ("vitesse du jeu: "+speed+"%");
 }

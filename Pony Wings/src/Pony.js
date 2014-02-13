@@ -19,6 +19,9 @@ pony.init = function(){
 	pony.touchGround3 = false;
 	pony.keyDown = false;
 	
+	//ndV: gestion de la vitesse du jeu
+	pony.gameSpeed  = 1.0;
+	
 	// Nouveaux Bonus (NdV):
 	pony.turbos     = 8;
 	pony.chronos    = 8;
@@ -168,6 +171,10 @@ pony.enterFrame = function()
 			pony.vel.y *= pony.turboPower;
 			pony.turboMode = false;
 		}//End.
+		
+		//ndV: gestion de la vitesse du jeu
+		pony.vel.x *= pony.gameSpeed;
+		pony.vel.y *= pony.gameSpeed;
 		
 		// Velocity Addition (ndV:??)
 		if(HUD.timer<=0){
