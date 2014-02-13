@@ -32,8 +32,11 @@ public class MainActivity extends ActionBarActivity {
         WebView myWebView = (WebView) findViewById(R.id.activity_main_webview);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        
-        myWebView.loadUrl("http://www.example.com");
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
+            webSettings.setAllowUniversalAccessFromFileURLs(true);
+            webSettings.setAllowFileAccessFromFileURLs(true);
+        }
+        myWebView.loadUrl("file:///android_asset/castofly/index.html");
     }
 
 
