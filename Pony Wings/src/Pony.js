@@ -63,7 +63,8 @@ pony.synchDataM2V = function () {
 
 pony.useChrono = function () {
 	if (pony.chronos > 0) {
-		this.chronoMode  = true;
+		console.log ("Slow TimeSpeed Mode On.");
+		this.chronoMode = true;
 		pony.chronoStart = HUD.timer;
 //		HUD.timer += 0.1;
 //		if (HUD.timer > 1.0){
