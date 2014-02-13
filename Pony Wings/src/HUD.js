@@ -9,7 +9,7 @@ HUD.init = function(){
 	HUD.groundvel = 0;
 	HUD.maxalt = 0;
 	HUD.endTimer = 0;
-	HUD.initialTimeSpeed = 5.0;
+	HUD.initialTimeSpeed = 1.0;
 	HUD.timeSpeed        = HUD.initialTimeSpeed; //ndV: utilisé pour les bonus Chronos, pour que le temps s'écoule moins vite.
 }
 

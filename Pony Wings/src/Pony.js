@@ -20,9 +20,9 @@ pony.init = function(){
 	pony.keyDown = false;
 	
 	// Nouveaux Bonus (NdV):
-	pony.turbos = 10;
-	pony.chronos = 10;
-	pony.parachutes = 10;
+	pony.turbos     = 8;
+	pony.chronos    = 8;
+	pony.parachutes = 8;
 	pony.synchDataM2V ();
 	
 	pony.chronoMode    = false;
@@ -32,7 +32,7 @@ pony.init = function(){
 	pony.chronoPower    = 0.5; // ]0, 1]: + c'est petit - le temps s'écoule vite.
 	pony.chronoTerm     = 0.1; // durée de l'utilisation d'un bonus chrono.   
 	pony.parachutePower = 0.9; // ]0, 1]: + c'est petit + le parachute freine la vitesse de la chute.
-	pony.turboPower     = 1.4;
+	pony.turboPower     = 1.7;
 	
 	pony.chronoStart    = null;
 }
