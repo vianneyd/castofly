@@ -18,8 +18,9 @@
 	 <meta itemprop="image" content="http://ponywings.nutcasenightmare.com">
      
      <!-- IOS STUFF -->
-     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+     <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/>
      <meta name="apple-mobile-web-app-capable" content="yes" />
+     <meta name="apple-touch-fullscreen" content="yes">
      <meta name="apple-mobile-web-app-status-bar-style" content="white-translucent" />
      <link rel="apple-touch-icon-precomposed" href="art/icon/IconScootBack.png" />
      <link rel="apple-touch-startup-image" href="art/Loading.png" />  
@@ -42,7 +43,7 @@
 			}
 		}
 		var gameIsLoaded = false;
-		var gameIsMobile = false;
+		var gameIsMobile = true;
 		var notHomeScreened = gameIsMobile && !window.navigator.standalone;
 	 </script>
 		   
@@ -66,15 +67,15 @@
 	    window.ontouchcancel = function(event){if(gameIsLoaded){ kCont.down = false; }}; 
 	</script>
    		
-	   <div style='position:fixed; top:0px; left:0px; width:500px; height:350px; margin: 0; padding: 0;'>   
+	   <div style='position:fixed; top:0px; left:0px; width:700px; height:550px; margin: 0; padding: 0;'>
 	   	   
 	   	   <!-- CANVAS DOM -->
 	   	   <div id="background">
 				<div id='loading'></div>
 	   	   </div>
 	   	   <div id="game_container" style='position:fixed; top:0px; left:0px; width:480px; height:300px; margin:0; padding:0;'>
-		   	   <canvas id="game" width="100%" height="100%"> </canvas>
-			   <canvas id="hud" width="100%" height="100%"></canvas>
+		   	   <canvas id="game" width="480" height="300"> </canvas>
+			   <canvas id="hud" width="480" height="300"></canvas>
 			   <div id='instructions' style='position:relative; opacity:1'>
 					<div class='title' style="position:absolute;top:20px;left:20px;"></div>
 					<!-- <div style='position:absolute;top:100px;left:200px;width:270px;height:100px;color:#E84298;'>
@@ -237,10 +238,10 @@
 												<!-- TWITTER -->
 												<div class='gotta_button social' style='margin-right:3px'>
 													<a href='https://twitter.com/share' class='twitter-share-button' id='twitter_thing'
-														data-url='http://ponywings.nutcasenightmare.com' 
-														data-text='Today I roller-scooted and flew across the hills of Equestria! Play Pony Wings:' 
+														data-url='http://castofly.orion.cx'
+														data-text='Today I skied and flew across the hills of CastoLand! Play Castofly with me:'
 														data-count='vertical'
-														data-via='ncasenmare'>Tweet</a>
+														data-via='jeanminouflet'>Tweet</a>
 												</div>
 												
 												<!-- GOOGLE -->
