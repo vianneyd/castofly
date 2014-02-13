@@ -27,7 +27,7 @@ pony.init = function(){
 	
 	pony.parachuteMode = false;
 	pony.turboMode = false;
-	pony.turboPower = 0;
+	pony.turboPower = 1.4;
 }
 pony.startMoving = false;
 
@@ -58,7 +58,7 @@ pony.useChrono = function () {
 	if (pony.chronos > 0) {
 		HUD.timer += 0.1;
 		if (HUD.timer > 1.0){
-			HUD.timer = 1.0;
+			HUD.timer   = 1.0;
 		} pony.chronos -= 1;	
 		pony.synchDataM2V ();
 	} 
@@ -66,8 +66,8 @@ pony.useChrono = function () {
 
 pony.useParachute  = function () {
 	if (pony.parachutes > 0) {
-		pony.parachuteMode  = true;
-		pony.parachutes -= 1;
+		pony.parachuteMode = true;
+		pony.parachutes   -= 1;
 		pony.synchDataM2V ();
 	}
 }
@@ -75,9 +75,8 @@ pony.useParachute  = function () {
 
 pony.useTurbo  = function () {
 	if (pony.turbos > 0) {
-		pony.turboMode  = true;
-		pony.turboPower += 50;	
-		pony.turbos -= 1;
+		pony.turboMode = true;	
+		pony.turbos   -= 1;
 		pony.synchDataM2V ();
 	}
 }
@@ -151,16 +150,15 @@ pony.enterFrame = function()
 	
 	if(pony.startMoving){
 		
+		console.log ("velocity: ("+pony.vel.x+", "+pony.vel.y+")");
 		//Begin: Prise en compte du bonus Turbo (NdV):
 		if (pony.turboMode) {
-			pony.turboPower -= 1;
-			if (pony.turboPower <= 0){
-				pony.turboMode  = false;
-				pony.turboPower = 0;
-			}
+			pony.vel.x *= pony.turboPower;
+			pony.vel.y *= pony.turboPower;
+			pony.turboMode = false;
 		}//End.
 		
-		// Velocity Addition
+		// Velocity Addition (ndV:??)
 		if(HUD.timer<=0){
 			pony.vel.x*=0.98;
 		}
@@ -174,7 +172,7 @@ pony.enterFrame = function()
 					pony.vel.x += 0.2; 
 					//pony.vel.x += 0.1; //Should just be pushing fwd
 				}
-			}else{
+			}else{ //ndV: le poney est dans les airs et le joueur touche l'écran:
 				pony.vel.y += 0.25;
 			}
 		}else{
@@ -190,12 +188,15 @@ pony.enterFrame = function()
 		}
 		
 		// Move coords
-		// AVEC LE TURBO:
-		pony.coord.x += pony.vel.x + pony.turboPower;
+		pony.coord.x += pony.vel.x;//(pony.vel.x +pony.turboPower);
 		var terrY = terrain.funct(pony.coord.x);
 		if(pony.touchGround3){
 			pony.coord.y += terrY;
 		}else{
+			//ndV: BEGIN Chute
+			if (this.parachuteMode){
+				pony.vel.y *= 0.9;
+			} //ndV: END Chute
 			pony.coord.y += pony.vel.y;
 		}	
 		// Terrain Update
@@ -224,11 +225,15 @@ pony.enterFrame = function()
 			pony.vel.y = pony.vel.x*terrSlope;
 			pony.vel.x*=0.995;
 			pony.vel.y*=0.995;
+			//ndV: BEGIN Chute
+			if (this.parachuteMode){
+				this.parachuteMode = false;
+			} //ndV: END Chute
 		}else{
 			//pony.coord.y += pony.vel.y;
 		}
 		
-		pony.rotation = Math.atan2(pony.vel.y,pony.vel.x + pony.turboPower);
+		pony.rotation = Math.atan2(pony.vel.y, pony.vel.x);// + pony.turboPower);
 		if(pony.rotation>Math.PI*0.3){
 			pony.rotation*=3;
 			pony.rotation+=Math.PI*0.3;
