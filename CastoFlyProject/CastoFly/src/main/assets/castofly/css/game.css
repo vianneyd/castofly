@@ -208,13 +208,13 @@ img {
 
 
 .itemButton {
-	-moz-box-shadow:inset 0px 1px 0px 0px #f4cafc;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #f4cafc;
-	box-shadow:inset 0px 1px 0px 0px #f4cafc;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #eea1fc), color-stop(1, #d441ee) );
-	background:-moz-linear-gradient( center top, #eea1fc 5%, #d441ee 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eea1fc', endColorstr='#d441ee');
-	background-color:#eea1fc;
+	-moz-box-shadow:inset 0px 1px 0px 0px #499DA8;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #499DA8;
+	box-shadow:inset 0px 1px 0px 0px #499DA8;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #499DA8), color-stop(1, #52B2BE) );
+	background:-moz-linear-gradient( center top, #499DA8 5%, #52B2BE 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#499DA8', endColorstr='#52B2BE');
+	background-color:#499DA8;
 	-webkit-border-top-left-radius:42px;
 	-moz-border-radius-topleft:42px;
 	border-top-left-radius:42px;
@@ -228,7 +228,7 @@ img {
 	-moz-border-radius-bottomleft:42px;
 	border-bottom-left-radius:42px;
 	text-indent:-1.11px;
-	border:2px solid #dd5df4;
+	border:2px solid #52B2BE;
 	display:inline-block;
 	color:#ffffff;
 	font-family:Comic Sans MS;

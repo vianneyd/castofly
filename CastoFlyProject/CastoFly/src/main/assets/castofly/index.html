@@ -41,9 +41,9 @@
 				event.preventDefault();
 			}
 		}
-		var gameIsLoaded = false;
-		var gameIsMobile = true;
-		var notHomeScreened = !gameIsMobile && !window.navigator.standalone;
+		var gameIsLoaded = true;
+		var gameIsMobile = false;
+		var notHomeScreened = gameIsMobile && !window.navigator.standalone;
 	 </script>
 
    </head>
@@ -119,7 +119,7 @@
 					    <div id="BoutiqueMenuInventaire" style="font-size:16px; padding:4px; border:1px solid #E84298; border-radius:10px;"> 
 						<div id="BoutiqueMenuInvTimeCount">
 						    <span id="MenuBoutiqueThune"></span> Castos 
-						    <button  class="itemButton"  onClick="pony.buyMoney(50);" onTouchStart="pony.buyMoney(50);" style="float:right; margin-right:0px;">Acheter 50 Castos</button>
+						    <div  class="itemButton" onTouchStart="pony.buyMoney(50);" onClick="pony.buyMoney(50);"  style="float:right; margin-right:0px;">Acheter 50 Castos</div>
 						</div> <div id="BoutiqueMenuInvTimeCount">
 						    <span id="chronoCountMM"></span> Chronos 
 						    <button  class="itemButton"  onClick="pony.buyChrono(1);" onTouchStart="pony.buyChrono(1);" style="float:right; margin-right:0px;">Acheter 1 Chrono</button>
@@ -192,7 +192,7 @@
 									<div id='pause' class="screenMenu">
 										<div class='title' style="background-position:0 -100px;"></div>
 										<div class='stats' id='main' style='font-size:16px'>
-											Press the Play button<br>to resume flight
+											Appuyez sur le bouton jouer<br>pour reprendre la partie
 											<div id='homeScreen'>
 												<img src='art/icon/HomeScreen.png'/>
 												<div>
@@ -208,59 +208,59 @@
 										<div class="center2" style="width:400px;">
 											<div class='title' style="background-position:0 -50px;"></div>
 											<div class='stats' id='main'>
-												Scootaloo flew <span id='stats_points'>1337m</span> today!
+												CastoBoy a parcouru <span id='stats_points'>1337m</span> !
 											</div>
 											<div class='stats'>
-												<div id='desc'>max altitude</div>
+												<div id='desc'>Altitude Max:</div>
 												<div id='score'><span id='stats_altitude'>20</span> m</div>
 											</div>
 											<div class='stats'>
-												<div id='desc'>max velocity</div>
-												<div id='score'><span id='stats_velocity'>20</span> kph</div>
+												<div id='desc'>Vitesse Max:</div>
+												<div id='score'><span id='stats_velocity'>20</span> km/h</div>
 											</div>
 											<div class='stats'>
-												<div id='desc'>parasprites</div>
+												<div id='desc'>Bonus</div>
 												<div id='score'><span id='stats_parasprites'>20</span></div>
 											</div>
 											<div class='stats' id='main' style='margin-top:10px;font-size:16px'>
-												Press Restart button or S to Start a new day
+											 Aie, perdu, vous pouvez recommencer !
 											</div>
 											
 											<div class='stats' id='yougotta'>
 												
-												<!-- FACEBOOK -->
+												<!-- FACEBOOK
 												<div class='gotta_button social' style='margin-right:-3px'>
 													<div id='fb-root'></div>
 													<div class='fb-like' data-href='http://ponywings.nutcasenightmare.com' data-send='false' data-layout='box_count' data-width='50' data-show-faces='false'></div>
 												</div>
-												
-												<!-- TWITTER -->
+												-->
+												<!-- TWITTER
 												<div class='gotta_button social' style='margin-right:3px'>
 													<a href='https://twitter.com/share' class='twitter-share-button' id='twitter_thing'
 														data-url='http://castofly.orion.cx'
 														data-text='Today I skied and flew across the hills of CastoLand! Play Castofly with me:'
 														data-count='vertical'
 														data-via='jeanminouflet'>Tweet</a>
-												</div>
+												</div>-->
 												
-												<!-- GOOGLE -->
-												<div class='gotta_button social'>
+												<!-- GOOGLE
+												<div class='gotta_button social'>-->
 													<!-- Place this tag where you want the +1 button to render -->
-													<!-- <g:plusone size='tall'></g:plusone> -->
-												</div>
+													<!-- <g:plusone size='tall'></g:plusone>
+												</div>-->
 												
-												<!-- THE SITE -->
-												<a href='http://ponywings.nutcasenightmare.com'>
+												<!-- THE SITE
+												<a href='http://orion.cx'>
 													<img src='art/icon/PonyWingsSite.png' width='60' height='60' class='gotta_button' />
-												</a>
+												</a>-->
 												
 												<!-- EMBED 
 												<div class='gotta_button' id='gb_embed'></div>-->
 												
-												<!-- MOBILE -->
-												<a href='http://ponywings.nutcasenightmare.com'>
+												<!-- MOBILE --><!--
+												<a href='http://orion.cx'>
 													<div class='gotta_button' id='gb_mobile' style='margin-right:0px'></div>
-												</a>
+												</a>-->
 												
 											</div>
 											

@@ -31,8 +31,8 @@ ourCAStore.buyMoney = function (n) {
 		ourCAStore.caStore = new CAStore(
             ourCAStore.CONSUMER_KEY, 
             ourCAStore.CONSUMER_SECRET, 
-            'http://localhost.fr:8081/callback_url.html',  /* Callback url */
-            'http://localhost.fr:8080/'                    /* Proxy server address */ ); 
+            'https://www.creditagricolestore.fr/callback_url.html'  /* Callback url */
+            /*'http://localhost.fr:8080/'                     Proxy server address */ );
 	} //document.getElementById("CAStoreScreenContainer").display = "block"; // NdV: à priori pas besoin, jQuery.show/hide do all the work.
 	
     //step 2: authentification de l'user de l'app:
