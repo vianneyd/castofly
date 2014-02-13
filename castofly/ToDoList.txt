@@ -1,0 +1,34 @@
+**************
+* ToDo LISTS *
+**************
+
+*****************
+* Feature List: *
+*****************
+* rajouter des bonus 
+* trouver des images pour les bonus
+* ajouter un inventaire pour le joueur qui contient tous ses bonus
+* le joueur garde l'inventaire de partie en partie
+* qd on est dans le main menu, le poney se raidit quand on clique sur les entrées du menu: est-ce désirable?
+* permettre de changer la force de la gravité
+* permettre de modifier la force du piqué de la bestiole quand elle retombe vers le sol (menu options)
+* permettre au joueur de modifier la vitesse du poney (cela fonctionne mal)
+* turbo: calculer une vitesse x et une vitesse y
+
+*************
+* Bug List: *
+*************
+* qd on est dans le menu principal, si la fenêtre du jeu perd le focus, le jeu se met en pause (ce qui n'est pas nécessaire).
+* utilisation du turbo : mauvaise rotation du poney
+
+**************
+* Test List: *
+**************
+* lancer l'application --> menu principal
+* menu principal, bouton "pause" --> rien
+* menu principal, bouton "muet"  --> le mode sonore change
+* menu principal, bouton "reset" --> rien
+* menu principal, bouton "shop"  --> on rentre dans la boutique, le bouton shop toggles
+* menu principal, bouton "reset 2" --> rien
+* menu principal, entrée "jouer" --> une partie commence
+* menu principal, entrée "mode silencieux" --> le mode sonore change
