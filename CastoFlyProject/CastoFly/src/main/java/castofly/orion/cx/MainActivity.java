@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.view.Window;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 public class MainActivity extends ActionBarActivity {
@@ -17,6 +19,8 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
@@ -26,6 +30,9 @@ public class MainActivity extends ActionBarActivity {
         }
 
         WebView myWebView = (WebView) findViewById(R.id.activity_main_webview);
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        
         myWebView.loadUrl("http://www.example.com");
     }
 
