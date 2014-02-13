@@ -3,9 +3,9 @@
 <!-- Update your html tag to include the itemscope and itemtype attributes -->
 <html itemscope itemtype="http://schema.org/Game">
 
-   <head>  
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>   
-   
+   <head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
      <!-- SOME METAINFO  -->
      <title>PONY WINGS</title>
      <LINK href="css/game.css" rel="stylesheet" type="text/css">
@@ -16,14 +16,13 @@
 	 <meta itemprop="name" content="Pony Wings">
 	 <meta itemprop="description" content="This would be a description of the content your users are sharing">
 	 <meta itemprop="image" content="http://ponywings.nutcasenightmare.com">
-     
+
      <!-- IOS STUFF -->
      <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/>
      <meta name="apple-mobile-web-app-capable" content="yes" />
-     <meta name="apple-touch-fullscreen" content="yes">
      <meta name="apple-mobile-web-app-status-bar-style" content="white-translucent" />
      <link rel="apple-touch-icon-precomposed" href="art/icon/IconScootBack.png" />
-     <link rel="apple-touch-startup-image" href="art/Loading.png" />  
+     <link rel="apple-touch-startup-image" href="art/Loading.png" />
 	 <script>
 		function toggleCASScreen(){
 		    $("#CAStoreScreenContainer").hide();
@@ -43,12 +42,12 @@
 			}
 		}
 		var gameIsLoaded = false;
-		var gameIsMobile = true;
+		var gameIsMobile = false;
 		var notHomeScreened = gameIsMobile && !window.navigator.standalone;
 	 </script>
-		   
+
    </head>
-   
+
    <body>
        
 	<script>
@@ -67,7 +66,7 @@
 	    window.ontouchcancel = function(event){if(gameIsLoaded){ kCont.down = false; }}; 
 	</script>
    		
-	   <div style='position:fixed; top:0px; left:0px; width:700px; height:550px; margin: 0; padding: 0;'>
+	   <div style='position:fixed; top:0px; left:0px; width:500px; height:350px; margin: 0; padding: 0;'>
 	   	   
 	   	   <!-- CANVAS DOM -->
 	   	   <div id="background">
@@ -120,16 +119,16 @@
 					    <div id="BoutiqueMenuInventaire" style="font-size:16px; padding:4px; border:1px solid #E84298; border-radius:10px;"> 
 						<div id="BoutiqueMenuInvTimeCount">
 						    <span id="MenuBoutiqueThune"></span> Castos 
-						    <button  class="itemButton"  onClick="pony.buyMoney(50);" style="float:right; margin-right:0px;">Acheter 50 Castos</button>
+						    <button  class="itemButton"  onClick="pony.buyMoney(50);" onTouchStart="pony.buyMoney(50);" style="float:right; margin-right:0px;">Acheter 50 Castos</button>
 						</div> <div id="BoutiqueMenuInvTimeCount">
 						    <span id="chronoCountMM"></span> Chronos 
-						    <button  class="itemButton"  onClick="pony.buyChrono(1);" style="float:right; margin-right:0px;">Acheter 1 Chrono</button>
+						    <button  class="itemButton"  onClick="pony.buyChrono(1);" onTouchStart="pony.buyChrono(1);" style="float:right; margin-right:0px;">Acheter 1 Chrono</button>
 						</div> <div id="BoutiqueMenuInvTurboCount">
 						    <span id="turboCountMM"></span> Turbos
-						    <button  class="itemButton"  onClick="pony.buyTurbo(1);" style="float:right; margin-right:0px;">Acheter1 Turbo</button>
+						    <button  class="itemButton"  onClick="pony.buyTurbo(1);" onTouchStart="pony.buyTurbo(1);" style="float:right; margin-right:0px;">Acheter1 Turbo</button>
 						</div> <div id="BoutiqueMenuInvParachuteCount">
 						    <span id="parachuteCountMM"></span> Chutes
-						    <button   class="itemButton" onClick="pony.buyParachute(1);" style="float:right; margin-right:0px;">Acheter 1 Chute</button></div>
+						    <button   class="itemButton" onClick="pony.buyParachute(1);" onTouchStart="pony.buyParachute(1);" style="float:right; margin-right:0px;">Acheter 1 Chute</button></div>
 					    </div>
 					    <div id="BoutiqueMenuBack" onClick="document.getElementById('BoutiqueMenu').style.display = 'none'; document.getElementById('MainMenu').style.display = 'block';" onTouchStart="document.getElementById('BoutiqueMenu').style.display = 'none'; document.getElementById('MainMenu').style.display = 'block';">Retour</div>
 					</div>
@@ -289,7 +288,9 @@
 		    <!-- Required inclusion for CAStore -->
 		    <script type="text/javascript" src="CAStoreStarterKit-JS-master/www/js/lib/sha1.js"></script>
 		    <script type="text/javascript" src="CAStoreStarterKit-JS-master/www/js/lib/oauth.js"></script>
-		    <script type="text/javascript" src="CAStoreStarterKit-JS-master/www/js/lib/castore.js"></script>   
+            <script type="text/javascript" src="CAStoreStarterKit-JS-master/www/js/lib/castore.js"></script>
+            <script type="text/javascript" src="CAStoreStarterKit-JS-master/www/js/lib/jquery-1.11.0.min.js"></script>
+
 		    <!-- Our CAStore -->
 		    <script src="src/OurCAStore.js"></script>
 		   <script type="text/javascript">

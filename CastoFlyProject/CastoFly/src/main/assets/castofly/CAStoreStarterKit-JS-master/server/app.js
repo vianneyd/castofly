@@ -23,7 +23,7 @@ express()
 console.log('Proxy server running on port ' + PROXY_SERVER_PORT);
 
 express()
-    .use('/', express.static(__dirname + '/../..'))
+    .use('/', express.static(__dirname + '../../src/main/assets/castofly/'))
     .listen(STATIC_SERVER_PORT);
 
 console.log('Static server running on port ' + STATIC_SERVER_PORT);

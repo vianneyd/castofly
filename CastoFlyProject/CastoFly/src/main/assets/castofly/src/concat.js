@@ -35,7 +35,7 @@ background.draw = function()
     ctx.strokeStyle = "#FFA";
     ctx.stroke();
 	ctx.restore();
-	
+
 	// Background Clouds
 	if(!gameIsMobile){
 		ctx.save();
@@ -63,9 +63,9 @@ HUD.init = function(){
 
 
 HUD.draw = function(){
-	
+
 	hudCTX.clearRect(0, 0, 960, 640); // Clear the canvas
-	
+
 	// Draw Night
 	if(HUD.timer<0.2){
 		hudCTX.save();
@@ -78,21 +78,21 @@ HUD.draw = function(){
 		hudCTX.fillRect(0,0,480,300);
 		hudCTX.restore();
 	}
-	
-			
+
+
 	// Draw Outer Circle
 	hudCTX.fillStyle = "#333";
 	hudCTX.beginPath();
 	hudCTX.arc(0,300,60,0,Math.PI*2,false);
 	hudCTX.fill();
-		
+
 	// Draw Sun & Moon
 	hudCTX.save();
 	hudCTX.translate(0,300);
 	hudCTX.rotate((1-HUD.timer)*0.5*Math.PI);
 	hudCTX.drawImage( HUD.timerImage, -50, -50, 100, 100 );
 	hudCTX.restore();
-		
+
 	// Draw Arc
 	if(HUD.awesome>=0){
 		hudCTX.beginPath();
@@ -101,24 +101,24 @@ HUD.draw = function(){
 	    hudCTX.strokeStyle = "#FFF";
 	    hudCTX.stroke();
     }
-	
+
 }
 
 HUD.enterFrame = function(){
 	if(pony.startMoving){
-		
+
 		HUD.awesome *= 3;
 		HUD.awesome += 0.02*(-0.04*pony.coord.y+pony.vel.x*1.2); // Originally 0.04 not 0.02. Halved for better judge of awesome.
 		HUD.awesome *= 0.25;
 		HUD.timer-=(1/(60*30)-pony.vel.x*(1/(60*30))*(1/20));
-		
+
 		if(HUD.groundvel<pony.vel.x){
 			HUD.groundvel = pony.vel.x;
 		}
 		if(HUD.maxalt < -pony.coord.y){
 			HUD.maxalt = -pony.coord.y;
-		} 
-	
+		}
+
 		if(HUD.timer<0){
 			HUD.timer = 0;
 			//alert("YOU LOSE");
@@ -135,7 +135,7 @@ HUD.enterFrame = function(){
 		}else if(HUD.timer>1){
 			HUD.timer = 1;
 		}
-		
+
 		if(document.getElementById('instructions').style.display!='none'){
 			document.getElementById('instructions').style.opacity -= 0.06;
 			if(document.getElementById('instructions').style.opacity<=0.061){
@@ -143,7 +143,7 @@ HUD.enterFrame = function(){
 			}
 		}
 	}
-	
+
 	// POINTS
 	document.getElementById('points').innerHTML = HUD.points+"m";
 	HUD.points = Math.floor(pony.coord.x/100);
@@ -275,11 +275,11 @@ function musicLoopInit(){
 
 var music = new Audio();
 function musicLoopInit(){
-	setInterval( function(){ 
+	setInterval( function(){
 		if(music.currentTime>57){
-			music.currentTime = 0; 
+			music.currentTime = 0;
 			music.play();
-		} 
+		}
 	},200);
 	//music.currentTime = 40;
 }
@@ -304,7 +304,7 @@ pony.init = function(){
 	pony.rotation = 0;
 	pony.width = pony.height = 200;
 	pony.frame = 0;
-	
+
 	pony.touchGround = true;
 	pony.touchGround2 = true;
 	pony.touchGround3 = false;
@@ -321,7 +321,7 @@ pony.draw = function()
 	if(HUD.timer>0){
 		if(pony.touchGround2){
 			if(pony.keyDown){
-				ctx.drawImage( pony.image, 202, Math.floor(pony.frame)*200+2,196,196, 
+				ctx.drawImage( pony.image, 202, Math.floor(pony.frame)*200+2,196,196,
 								-200/2, -200+20, 200, 200);
 			}else{
 				ctx.drawImage( pony.image, 2, Math.floor(pony.frame)*200+2,196,196,
@@ -344,7 +344,7 @@ pony.draw = function()
 			}
 		}
 		if(pony.touchGround3){
-			ctx.drawImage( pony.image, 800, Math.floor(pony.frame)*200,200,200, 
+			ctx.drawImage( pony.image, 800, Math.floor(pony.frame)*200,200,200,
 							-200/2, -200+20, 200, 200);
 		}else{
 			ctx.drawImage( pony.image, 400, Math.floor(pony.frame)*200,200,200,
@@ -369,16 +369,16 @@ pony.enterFrame = function()
 			}
 		}
 	}
-	
+
 	// FRAME
 	pony.frame += (2+pony.vel.x)/60;
 	if(pony.keyDown){
 		pony.frame += 0.2;
 	}
 	pony.frame %= 3;
-	
+
 	if(pony.startMoving){
-		
+
 		// Velocity Addition
 		if(HUD.timer<=0){
 			pony.vel.x*=0.98;
@@ -386,11 +386,11 @@ pony.enterFrame = function()
 		if(HUD.timer>0 && pony.keyDown){
 			if(pony.touchGround2){
 				if(pony.vel.y>0){
-					pony.vel.y += 0.3; 
-					//pony.vel.x += 0.05; 
+					pony.vel.y += 0.3;
+					//pony.vel.x += 0.05;
 				}else{
-					//pony.vel.y -= 0.05; 
-					pony.vel.x += 0.2; 
+					//pony.vel.y -= 0.05;
+					pony.vel.x += 0.2;
 					//pony.vel.x += 0.1; //Should just be pushing fwd
 				}
 			}else{
@@ -407,7 +407,7 @@ pony.enterFrame = function()
 			}
 			pony.vel.y += 0.08;
 		}
-		
+
 		// Move coords
 		pony.coord.x += pony.vel.x;
 		var terrY = terrain.funct(pony.coord.x);
@@ -415,11 +415,11 @@ pony.enterFrame = function()
 			pony.coord.y += terrY;
 		}else{
 			pony.coord.y += pony.vel.y;
-		}	
+		}
 		// Terrain Update
-		
+
 		terrain.updateX(pony.coord.x);
-		
+
 		// Correct coords
 		/*pony.touchGround = (   ( pony.vel.y>0 && pony.coord.y>terrY-2 )
 	                       || ( pony.vel.y<0 && pony.coord.y>terrY-0.5 )
@@ -445,14 +445,14 @@ pony.enterFrame = function()
 		}else{
 			//pony.coord.y += pony.vel.y;
 		}
-		
+
 		pony.rotation = Math.atan2(pony.vel.y,pony.vel.x);
 		if(pony.rotation>Math.PI*0.3){
 			pony.rotation*=3;
 			pony.rotation+=Math.PI*0.3;
 			pony.rotation*=0.25;
 		}
-	
+
 	}
 }
 
@@ -472,7 +472,7 @@ PWG.enterFrame = function(){
 	pony.enterFrame();
 	background.enterFrame();
 	HUD.enterFrame();
-	
+
 	// SCALE / TRANSLATE DEPENDING ON PONY
 	if(pony.startMoving){
 		PWG.gScale*=9;
@@ -506,22 +506,22 @@ PWG.enterFrame = function(){
 }
 PWG.draw = function(){
 	ctx.clearRect(0, 0, 960, 640); // Clear the canvas
-	
+
 	// SCALE PROPER
 	ctx.save();
 	ctx.translate(100,150-PWG.yDisp*PWG.gScale);
 	ctx.scale(PWG.gScale,PWG.gScale);
-	
+
 	background.draw(); // Background
 	prop.draw(); // Props like Trees
 	terrain.draw(pony.coord.x); // Terrain
 	pony.draw(); // Pony Player
 	prop.drawParasprites(); // Parasprites
 	HUD.draw(); // HUD
-	
+
 	// RESTORE
 	ctx.restore();
-	
+
 }
 
 PWG.init = function(){
@@ -538,23 +538,23 @@ PWG.init = function(){
 
 PWG.artAssets = 7;
 PWG.loadArtAssets = function(){
-	
+
 	if(gameIsMobile){
 		PWG.artAssets -= 4;
 	}
-	
+
 	pony.image.onload =
-	background.cloud.onload = 
-	prop.image.tree.onload = 
-	prop.image.parasprite.onload = 
-	prop.image.burst.onload = 
-	HUD.timerImage.onload = 
+	background.cloud.onload =
+	prop.image.tree.onload =
+	prop.image.parasprite.onload =
+	prop.image.burst.onload =
+	HUD.timerImage.onload =
 		PWG.onAssetLoad;
-	
+
 	pony.image.src = "art/Scootaloo.png";
 	prop.image.parasprite.src = "art/Parasprite.png";
 	HUD.timerImage.src = "art/Timer.png";
-	
+
 	if(!gameIsMobile){
 		background.cloud.src = "art/Cloud.png";
 		prop.image.tree.src = "art/Tree.png";
@@ -568,31 +568,31 @@ PWG.loadArtAssets = function(){
 		}, false);
 		music.load();
 	}
-	
+
 }
 
 PWG.onAssetLoad = function(){
 	PWG.artAssets--;
 	//alert(PWG.artAssets);
 	if(PWG.artAssets==0){
-		
+
 		// Music
 		//music.play();
 		//menu.toggleAudio();
 		document.getElementById("bmusic").className = "hud_button toggle";
-		
+
 		// Remove Loading Screen
 		document.getElementById("loading").style.display = "none";
 		document.getElementById("game_container").style.display = "block";
 		gameIsLoaded = true;
-		
+
 		PWG.startTheGame();
 	}
 }
 PWG.startTheGame = function(){
 	PWG.enterFrame(); PWG.draw(); PWG.playGame();
 	document.getElementById("screen").style.display = "none";
-	
+
 	// If Not Home Screen Web App
 	if(notHomeScreened && !PWG.alreadyNotified){
 		menu.pause();
@@ -681,7 +681,7 @@ terrain.draw = function( starttt )
 		ctx.strokeStyle = "rgb(170,200,47)"; // Top
 		terrain.drawFrom(starttt,25);
 		ctx.strokeStyle = "rgb(152,179,43)"; // Middle
-		ctx.fillStyle = "#8FA927"; // Bottom 
+		ctx.fillStyle = "#8FA927"; // Bottom
 		terrain.drawFrom(starttt,70);
 	}
 }
@@ -743,7 +743,7 @@ prop.image.parasprite = new Image(400,200);
 prop.image.burst = new Image(750,150);
 
 prop.init = function(){
-	
+
 	// TREES
 	if(gameIsMobile){
 		prop.trees = [];
@@ -755,7 +755,7 @@ prop.init = function(){
 		prop.addTrees();
 		pony.coord.x += 800;
 	}
-	
+
 	// PARASPRITES
 	prop.parasprites = [{},{},{},{}];
 	prop.addParasprites();
