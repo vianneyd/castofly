@@ -9,6 +9,7 @@ HUD.init = function(){
 	HUD.groundvel = 0;
 	HUD.maxalt = 0;
 	HUD.endTimer = 0;
+	HUD.timeSpeed = 1.0; //ndV: utilisé pour les bonus Chronos, pour que le temps s'écoule moins vite.
 }
 
 
@@ -63,7 +64,13 @@ HUD.enterFrame = function(){
 		HUD.awesome *= 3;
 		HUD.awesome += 0.02*(-0.04*pony.coord.y+pony.vel.x*1.2); // Originally 0.04 not 0.02. Halved for better judge of awesome.
 		HUD.awesome *= 0.25;
-		HUD.timer-=(1/(60*30)-pony.vel.x*(1/(60*30))*(1/20));
+		if (pony.chronoMode){
+		    if (HUD.timer -pony.chronoStart > pony.chronoTerm){
+			pony.chronoMode = false;
+			HUD.timeSpeed = 1.0;
+		    } HUD.timeSpeed = pony.chronoPower;
+		}  
+		HUD.timer -= (HUD.timeSpeed/(60*30)-pony.vel.x*(1/(60*30))*(1/20));
 		
 		if(HUD.groundvel<pony.vel.x){
 			HUD.groundvel = pony.vel.x;

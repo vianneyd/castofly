@@ -25,9 +25,16 @@ pony.init = function(){
 	pony.parachutes = 10;
 	pony.synchDataM2V ();
 	
+	pony.chronoMode    = false;
 	pony.parachuteMode = false;
-	pony.turboMode = false;
-	pony.turboPower = 1.4;
+	pony.turboMode     = false;
+	
+	pony.chronoPower    = 0.5; // ]0, 1]: + c'est petit - le temps s'écoule vite.
+	pony.chronoTerm     = 0.1; // durée de l'utilisation d'un bonus chrono.   
+	pony.parachutePower = 0.9; // ]0, 1]: + c'est petit + le parachute freine la vitesse de la chute.
+	pony.turboPower     = 1.4;
+	
+	pony.chronoStart    = null;
 }
 pony.startMoving = false;
 
@@ -56,10 +63,13 @@ pony.synchDataM2V = function () {
 
 pony.useChrono = function () {
 	if (pony.chronos > 0) {
-		HUD.timer += 0.1;
-		if (HUD.timer > 1.0){
-			HUD.timer   = 1.0;
-		} pony.chronos -= 1;	
+		this.chronoMode  = true;
+		pony.chronoStart = HUD.timer;
+//		HUD.timer += 0.1;
+//		if (HUD.timer > 1.0){
+//			HUD.timer   = 1.0;
+//		} 
+		pony.chronos -= 1;	
 		pony.synchDataM2V ();
 	} 
 }
@@ -195,7 +205,7 @@ pony.enterFrame = function()
 		}else{
 			//ndV: BEGIN Chute
 			if (this.parachuteMode){
-				pony.vel.y *= 0.9;
+				pony.vel.y *= pony.parachutePower;
 			} //ndV: END Chute
 			pony.coord.y += pony.vel.y;
 		}	
