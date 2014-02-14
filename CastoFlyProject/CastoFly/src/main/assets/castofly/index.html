@@ -151,15 +151,17 @@
 								ontouchstart='menu.togglePause();'
 								onclick='menu.togglePause();'></div>
 					</div>
-			   		<span style="position:absolute;right:0;bottom:0;margin:10px" id="points">0</span>
+
+
 			   </div>
-			   
-			    <div id="item_screen" style="position:fixed; top:270px; left:110px; margin:1px;">
-				<button class="itemButton" onClick="pony.useChrono ();" onTouchStart="pony.useChrono();"><span id="chronoCount"></span> <span id="chronoButtonLabel">Chronos</span></button>
-				<button class="itemButton" onClick="pony.useTurbo ();" onTouchStart="pony.useTurbo ();"><span id="turboCount"></span> <span id="turboButtonLabel">Turbos</span></button>
-				<button class="itemButton" onClick="pony.useParachute ();" onTouchStart="pony.useParachute ();"><span id="parachuteCount"></span> <span id="parachuteButtonLabel">Chutes</span></button>
-				<button  class="itemButton" onClick="toggleCASScreen ();" onTouchStart="toggleCASScreen ();"><span id="toggleCASSLabel">hide</span></button>
-			    </div>
+               <span style="position:absolute;right:0;bottom:0;margin:30px" id="points">0</span>
+               <div id="item_screen" style="position:fixed; bottom:0; right:0; margin:1px;">
+                   <button class="itemButton" onClick="pony.useChrono ();" onTouchStart="pony.useChrono();"><span id="chronoCount"></span> <span id="chronoButtonLabel">Chronos</span></button>
+                   <button class="itemButton" onClick="pony.useTurbo ();" onTouchStart="pony.useTurbo ();"><span id="turboCount"></span> <span id="turboButtonLabel">Turbos</span></button>
+                   <button class="itemButton" onClick="pony.useParachute ();" onTouchStart="pony.useParachute ();"><span id="parachuteCount"></span> <span id="parachuteButtonLabel">Chutes</span></button>
+                   <button  class="itemButton" onClick="toggleCASScreen ();" onTouchStart="toggleCASScreen ();"><span id="toggleCASSLabel">hide</span></button>
+               </div>
+
 			   
 			   <div id="boutique">
 				<div id="container2" style="position:absolute; top:50px; left:100px; background-color:#888888; opacity:0.75;">
